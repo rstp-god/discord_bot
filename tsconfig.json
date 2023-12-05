@@ -1,7 +1,7 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "./dist",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -10,7 +10,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "./build/types",
+    "declarationDir": "./dist/types",
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
@@ -21,5 +21,7 @@
       "ES2022",
       "dom"
     ]
-  }
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["src/**/*"]
 }

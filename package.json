@@ -9,9 +9,9 @@
   "private": true,
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "start": "node build/bot.js",
-    "dev": "tsc --project tsconfig.json -watch",
-    "dev:watch": "concurrently \"yarn dev\" \"nodemon --exec ts-node -q build/bot.js\""
+    "start": "node --es-module-specifier-resolution=node dist/bot.js",
+    "dev": "tsc --project tsconfig.json -watch ",
+    "dev:watch": "concurrently \"yarn dev\" \"node --es-module-specifier-resolution=node dist/bot.js"
   },
   "dependencies": {
     "axios": "^1.6.2",
