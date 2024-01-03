@@ -1,4 +1,12 @@
-import { REST, Routes, Client, GatewayIntentBits, ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import {
+    REST,
+    Routes,
+    Client,
+    GatewayIntentBits,
+    ChatInputCommandInteraction,
+    SlashCommandBuilder,
+    SlashCommandStringOption
+} from "discord.js";
 import * as env from 'dotenv';
 import { ChatApi } from "./service";
 
@@ -9,15 +17,15 @@ const api = new ChatApi();
 const data = new SlashCommandBuilder()
     .setName("ask")
     .setDescription("AskGpt")
-    .addStringOption(option =>
+    .addStringOption((option: SlashCommandStringOption) =>
         option
             .setName("input")
             .setDescription("Your question")
-            .setRequired(true));
+            .setRequired(true))
 
 const commands = [];
 
-commands.push(data.toJSON());
+commands.push(data);
 
 // @ts-ignore
 const rest = new REST({version: "10"}).setToken(process.env.ACCESS_TOKEN)
